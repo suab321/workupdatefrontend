@@ -12,8 +12,8 @@ class All_developers extends React.Component{
     constructor(props){
         super(props);
         this.state={data:[],redirect:false}
-        Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
-            Axios.get('https://young-ocean-54472.herokuapp.com/getalldeveloper',{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
+            Axios.get('https://enigmatic-brook-34927.herokuapp.com/getalldeveloper',{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                 this.setState({data:res.data});
             })
         })
@@ -29,9 +29,9 @@ class All_developers extends React.Component{
               label: 'Yes',
               onClick: () => { 
                this.setState({delete:1})
-               Axios.get(`https://young-ocean-54472.herokuapp.com/user`,{withCredentials:true}).then(res=>{
+               Axios.get(`https://enigmatic-brook-34927.herokuapp.com/user`,{withCredentials:true}).then(res=>{
                    if(res.status===200){
-                      Axios.delete(`https://young-ocean-54472.herokuapp.com/removedeveloper/${id}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                      Axios.delete(`https://enigmatic-brook-34927.herokuapp.com/removedeveloper/${id}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                           this.setState({redirect:true})
                       })
                    }

@@ -44,7 +44,7 @@ class Register extends React.Component{
                 ?
                 <div style={{textAlign:"center"}}>
 				<div class='form'>
-				<form method="POST" action='https://young-ocean-54472.herokuapp.com/form/register'>
+				<form method="POST" action='https://enigmatic-brook-34927.herokuapp.com/form/register'>
 				<label style={{fontSize: "2em"}}>REGISTER</label><br/><br/><br/>
 				<img src="https://s3.amazonaws.com/thumbnails.illustrationsource.com/huge.102.513291.JPG" alt="" width="200px" height="200px"/><br/><br/>
 				<label>Email</label><br/><br/>
@@ -59,13 +59,13 @@ class Register extends React.Component{
 				<p style={{fontFamily: "sans-serif"}}>Dont Have an Account!</p>
 				</form>
 				<a href='/login'><button>Click to Login</button></a><br/><br/>
-                <a href='https://young-ocean-54472.herokuapp.com/google/login'><button>Click to Login via Google</button></a>
+                <a href='https://enigmatic-brook-34927.herokuapp.com/google/login'><button>Click to Login via Google</button></a>
 				</div>
 			</div>
             :(
                 <div style={{textAlign:"center"}}>
 				<div class='form'>
-				<form method="POST" action='https://young-ocean-54472.herokuapp.com/form/register'>
+				<form method="POST" action='https://enigmatic-brook-34927.herokuapp.com/form/register'>
 				<label style={{fontSize: "2em"}}>REGISTER</label><br/><br/><br/>
 				<img src="https://s3.amazonaws.com/thumbnails.illustrationsource.com/huge.102.513291.JPG" alt="" width="200px" height="200px"/><br/><br/>
 				<label>Email</label><br/><br/>
@@ -81,7 +81,7 @@ class Register extends React.Component{
 				<p style={{fontFamily: "sans-serif"}}>Dont Have an Account!</p>
 				</form>
 				<a href='/login'><button>Click to Login</button></a><br/><br/>
-                <a href='https://young-ocean-54472.herokuapp.com/google/login'><button>Click to Login Via Google</button></a>
+                <a href='https://enigmatic-brook-34927.herokuapp.com/google/login'><button>Click to Login Via Google</button></a>
 				</div>
                 </div>
             )

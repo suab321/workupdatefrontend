@@ -14,9 +14,9 @@ class ShowTable1 extends React.Component{
     componentWillReceiveProps(){
         console.log(this.props.type)
         this.setState({data:[]});
-        Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/project/${this.props.type}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/project/${this.props.type}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                     if(res.data.length!==0)
                         this.setState({data:res.data})
                 })
@@ -61,9 +61,9 @@ class ShowTable2 extends React.Component{
 
     componentWillReceiveProps(){
         this.setState({data:[]});
-        Axios.get('https://young-ocean-54472.herokuapp.com/ser',{withCredentials:true}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/ser',{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/getproject/${this.props.type}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getproject/${this.props.type}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                     if(res.data!=="No projects")
                         this.setState({data:res.data})
                 })

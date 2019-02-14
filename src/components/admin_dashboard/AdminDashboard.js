@@ -7,18 +7,18 @@ class AdminDashboard extends React.Component{
     constructor(props){
         super(props);
         this.state={name:"",error:"",type:""};
-        Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/cancreate`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/cancreate`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                     if(res.data==="yes"){
                         this.setState({error:res.data})
                     }
             })
            }
         })
-            Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+            Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
                 if(res.status===200){
-                    Axios.get(`https://young-ocean-54472.herokuapp.com/name`,{headers:{Authorization: `Bearer ${res.data}`}})
+                    Axios.get(`https://enigmatic-brook-34927.herokuapp.com/name`,{headers:{Authorization: `Bearer ${res.data}`}})
                     .then(res=>this.setState({name:res.data.user.name}))
                 }
             })

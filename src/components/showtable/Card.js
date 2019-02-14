@@ -38,9 +38,9 @@ class Card1 extends React.Component{
           label: 'Yes',
           onClick: () => { 
            this.setState({delete:1})
-           Axios.get(`https://young-ocean-54472.herokuapp.com/user`,{withCredentials:true}).then(res=>{
+           Axios.get(`https://enigmatic-brook-34927.herokuapp.com/user`,{withCredentials:true}).then(res=>{
                if(res.status===200){
-                  Axios.delete(`https://young-ocean-54472.herokuapp.com/removeproject/${id}`,{headers:{Authorization: `Bearer ${res.data}`}})
+                  Axios.delete(`https://enigmatic-brook-34927.herokuapp.com/removeproject/${id}`,{headers:{Authorization: `Bearer ${res.data}`}})
                }
            }).catch(err=>alert(err));
           }
@@ -58,9 +58,9 @@ class Card1 extends React.Component{
     this.setState({isModalOpen:true,id:id})
 }
   confirmedit(){
-    Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+    Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
       if(res.status === 200 || res.status === 304){
-        Axios.put(`https://young-ocean-54472.herokuapp.com/updateprojects/${this.state.id}`,{details:this.detailref.current.value,enddate:this.dateref.current.value},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+        Axios.put(`https://enigmatic-brook-34927.herokuapp.com/updateprojects/${this.state.id}`,{details:this.detailref.current.value,enddate:this.dateref.current.value},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
       })
     }
   })

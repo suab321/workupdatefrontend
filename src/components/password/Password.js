@@ -10,7 +10,7 @@ class Password extends React.Component{
         return(
             <div style={{textAlign:"center"}}>
             <div class='form'>
-            <form method="POST" action={`https://young-ocean-54472.herokuapp.com/updatepassword/${this.props.match.params.email}`}>
+            <form method="POST" action={`https://enigmatic-brook-34927.herokuapp.com/updatepassword/${this.props.match.params.email}`}>
             <label style={{fontSize: "2em"}}>Enter the Email Address of new user</label><br/><br/><br/>
             <img src="https://s3.amazonaws.com/thumbnails.illustrationsource.com/huge.102.513291.JPG" alt="" width="200px" height="200px"/><br/><br/>
             <label>Name</label><br/><br/>

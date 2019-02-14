@@ -14,13 +14,13 @@ class ProjectforDev extends React.Component{
         this.developer=this.developer.bind(this);
         this.edit=this.edit.bind(this);
         this.input=React.createRef();
-        Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/getstatus/${this.props.match.params.proid}`,{headers:{Authorization: `Bearer ${res.data}`}})
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getstatus/${this.props.match.params.proid}`,{headers:{Authorization: `Bearer ${res.data}`}})
                 .then(res=>{
                     this.setState({data:res.data[0].currentStatus})
                 })
-                Axios.get(`https://young-ocean-54472.herokuapp.com/projectdetailfordev/${this.props.match.params.proid}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/projectdetailfordev/${this.props.match.params.proid}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                     if(res.status===200)
                         this.setState({prodetail:res.data});
                 })
@@ -37,10 +37,10 @@ class ProjectforDev extends React.Component{
     update(){
         console.log();
         this.input.current.readOnly=false;
-        Axios.get(`https://young-ocean-54472.herokuapp.com/user`,{withCredentials:true}).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/user`,{withCredentials:true}).then(res=>{
             if(res.status===200)
             {
-                Axios.put(`https://young-ocean-54472.herokuapp.com/updatestatus/${this.props.match.params.proid}`,{status:`${this.input.current.value}`},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                Axios.put(`https://enigmatic-brook-34927.herokuapp.com/updatestatus/${this.props.match.params.proid}`,{status:`${this.input.current.value}`},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                     if(res.status === 200||res.status === 304)
                         this.setState({showdeveloper:0})
                 })
@@ -48,7 +48,7 @@ class ProjectforDev extends React.Component{
         })
     }
     showtask(){
-        Axios.get(`https://young-ocean-54472.herokuapp.com/getprojectstask/${this.props.match.params.proid}`,{withCredentials:true})
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getprojectstask/${this.props.match.params.proid}`,{withCredentials:true})
         .then(res=>{
             if(res.status === 200)
                 this.setState({tasks:res.data})
@@ -76,9 +76,9 @@ class ProjectforDev extends React.Component{
     }
     mark(iscomplete,i){
         console.log(iscomplete,i);
-       Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+       Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
            if(res.status === 200){
-            Axios.put(`https://young-ocean-54472.herokuapp.com/updateassigntask/${this.props.match.params.proid}/${i._id}`,{task:i.task,enddate:i.enddate,iscomplete:iscomplete,proid:i.proid},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+            Axios.put(`https://enigmatic-brook-34927.herokuapp.com/updateassigntask/${this.props.match.params.proid}/${i._id}`,{task:i.task,enddate:i.enddate,iscomplete:iscomplete,proid:i.proid},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                 this.setState({showdeveloper:0})
             })
            }

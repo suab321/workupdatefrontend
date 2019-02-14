@@ -73,9 +73,9 @@ class AssigningDeveloper extends React.Component{
     logSelection = () => {
       this.setState({redirect:true});
       console.log(this.state.selection);
-      Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+      Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
         if(res.status===200){
-          Axios.put(`https://young-ocean-54472.herokuapp.com/assigndevelopers/${this.props.match.params.proid}`,{developers:this.state.selection},{headers:{Authorization: `Bearer ${res.data}`}})
+          Axios.put(`https://enigmatic-brook-34927.herokuapp.com/assigndevelopers/${this.props.match.params.proid}`,{developers:this.state.selection},{headers:{Authorization: `Bearer ${res.data}`}})
         }
       })
     };

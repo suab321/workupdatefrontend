@@ -9,9 +9,9 @@ class DeveloperDashoard extends React.Component{
         super(props);
         this.state={name:"",error:"yes",type:""};
 
-        Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/cancreate`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/cancreate`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                     if(res.data==="yes")
                         this.setState({error:"no"})
                     else
@@ -20,9 +20,9 @@ class DeveloperDashoard extends React.Component{
           }
         })
        
-        Axios.get(`https://young-ocean-54472.herokuapp.com/user`,{withCredentials:true}).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/user`,{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/name`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/name`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                     if(res.status===200)
                         this.setState({name:res.data.user.name});
                 })

@@ -34,7 +34,7 @@ class DeveloperinProject1 extends React.Component{
         this.openmodal=this.openmodal.bind(this);
         this.assign=this.assign.bind(this);
         this.state={data:[],isModalOpen:false,devid:'',showtask:false,tasks:[],devid_for_task_removal:''}
-        Axios.get(`https://young-ocean-54472.herokuapp.com/getdeveloperinproject/${this.props.proid}`).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getdeveloperinproject/${this.props.proid}`).then(res=>{
             this.setState({data:res.data.developers}) 
         })
     }
@@ -48,9 +48,9 @@ class DeveloperinProject1 extends React.Component{
                 label: 'Yes',
                 onClick: () => { 
                  this.setState({delete:1})
-                 Axios.get(`https://young-ocean-54472.herokuapp.com/user`,{withCredentials:true}).then(res=>{
+                 Axios.get(`https://enigmatic-brook-34927.herokuapp.com/user`,{withCredentials:true}).then(res=>{
                      if(res.status===200){
-                        Axios.delete(`https://young-ocean-54472.herokuapp.com/deletedevfromproject/${id}/${this.props.proid}`,{headers:{Authorization: `Bearer ${res.data}`}})
+                        Axios.delete(`https://enigmatic-brook-34927.herokuapp.com/deletedevfromproject/${id}/${this.props.proid}`,{headers:{Authorization: `Bearer ${res.data}`}})
                      }
                  })
                 }
@@ -65,7 +65,7 @@ class DeveloperinProject1 extends React.Component{
 
     showtasks(i){
         console.log(i);
-        Axios.get(`https://young-ocean-54472.herokuapp.com/getprojectstasksforadmin/${this.props.proid}/${i.devid}`).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getprojectstasksforadmin/${this.props.proid}/${i.devid}`).then(res=>{
             this.setState({tasks:res.data,showtask:true,devid_for_task_removal:i.devid});
         })  
     }
@@ -84,9 +84,9 @@ class DeveloperinProject1 extends React.Component{
     }
     assign(r1,r2){
         
-        Axios.get(`https://young-ocean-54472.herokuapp.com/user`,{withCredentials:true}).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/user`,{withCredentials:true}).then(res=>{
             if(res.status === 200){
-                Axios.put(`https://young-ocean-54472.herokuapp.com/assigntask/${this.props.proid}/${this.state.devid}`,{task:r1.current.value,enddate:r2.current.value,proid:this.props.proid})
+                Axios.put(`https://enigmatic-brook-34927.herokuapp.com/assigntask/${this.props.proid}/${this.state.devid}`,{task:r1.current.value,enddate:r2.current.value,proid:this.props.proid})
             }
         })
     }
@@ -106,9 +106,9 @@ class DeveloperinProject1 extends React.Component{
     removetask(id){
         var devid=this.state.devid_for_task_removal;
         console.log(this.props.proid,devid,id)
-       Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+       Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
            if(res.status === 200 || res.status === 304){
-            Axios.delete(`https://young-ocean-54472.herokuapp.com/deletetask/${this.props.proid}/${devid}/${id}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+            Axios.delete(`https://enigmatic-brook-34927.herokuapp.com/deletetask/${this.props.proid}/${devid}/${id}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                 if(res.status === 200 || 304)
                     alert('Deleted task');
             })
@@ -210,9 +210,9 @@ class DeveloperinProject2 extends React.Component{
         super(props);
         this.state={data:[],email:'',contact:''}
         this.getdetail=this.getdetail.bind(this);
-        Axios.get(`https://young-ocean-54472.herokuapp.com/user`,{withCredentials:true}).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/user`,{withCredentials:true}).then(res=>{
             if(res.status===200){
-            Axios.get(`https://young-ocean-54472.herokuapp.com/getdeveloperinprojectfordev/${this.props.proid}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+            Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getdeveloperinprojectfordev/${this.props.proid}`,{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
             if(res.status===200)
                 this.setState({data:res.data}) 
             })
@@ -220,7 +220,7 @@ class DeveloperinProject2 extends React.Component{
         })
     }
     getdetail(i){
-        Axios.get(`https://young-ocean-54472.herokuapp.com/getemailiddeveloper/${i.devid}`).then(res=>{this.setState({email:res.data.email,contact:res.data.contactNo})})
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getemailiddeveloper/${i.devid}`).then(res=>{this.setState({email:res.data.email,contact:res.data.contactNo})})
     }
 
     yes(){

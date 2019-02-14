@@ -10,9 +10,9 @@ class New extends React.Component{
         this.email=React.createRef();
         this.role=React.createRef();
         this.create=this.create.bind(this);
-        Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/cancreate`,{headers:{Authorization: `Bearer ${res.data}`}})
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/cancreate`,{headers:{Authorization: `Bearer ${res.data}`}})
                 .then(res=>{
                     if(res.status===200){
                        this.setState({error:0});
@@ -23,9 +23,9 @@ class New extends React.Component{
     }
     create(){
         if(!this.state.error){
-            Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+            Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
                 if(res.status===200){
-                    Axios.post('https://young-ocean-54472.herokuapp.com/create',{email:this.email.current.value,role:this.role.current.value},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
+                    Axios.post('https://enigmatic-brook-34927.herokuapp.com/create',{email:this.email.current.value,role:this.role.current.value},{headers:{Authorization: `Bearer ${res.data}`}}).then(res=>{
                         if(res.status === 201)
                             this.setState({redirect:true});
                     })

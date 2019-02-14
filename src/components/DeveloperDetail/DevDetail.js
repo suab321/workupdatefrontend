@@ -8,7 +8,7 @@ class DevDetail2 extends React.Component{
     constructor(props){
         super(props);
         this.state={data:[]}
-        Axios.get(`https://young-ocean-54472.herokuapp.com/developerdetail/${this.props.match.params.devid}`).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/developerdetail/${this.props.match.params.devid}`).then(res=>{
             this.setState({data:res.data});
             console.log(this.state.data)
         })
@@ -37,7 +37,7 @@ class DevDetail1 extends React.Component{
     constructor(props){
         super(props);
         this.state={data:[],showproject:""}
-        Axios.get(`http://localhost:3002/developerdetail/${this.props.match.params.devid}`).then(res=>{
+        Axios.get(`https://enigmatic-brook-34927.herokuapp.com/developerdetail/${this.props.match.params.devid}`).then(res=>{
             this.setState({data:res.data});
             console.log(this.state.data)
         })
