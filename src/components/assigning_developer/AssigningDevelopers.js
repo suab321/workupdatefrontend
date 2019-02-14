@@ -21,13 +21,13 @@ class AssigningDeveloper extends React.Component{
           
     }
     fetchData(){
-        Axios.get('https://young-ocean-54472.herokuapp.com/user',{withCredentials:true}).then(res=>{
+        Axios.get('https://enigmatic-brook-34927.herokuapp.com/user',{withCredentials:true}).then(res=>{
             if(res.status===200){
-                Axios.get(`https://young-ocean-54472.herokuapp.com/get_all_developers/${this.props.match.params.proid}`,{headers:{Authorization: `Bearer ${res.data}`}})
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/get_all_developers/${this.props.match.params.proid}`,{headers:{Authorization: `Bearer ${res.data}`}})
                 .then(res=>{
                     this.setState({data:res.data});
                 })
-                Axios.get(`https://young-ocean-54472.herokuapp.com/getdeveloperinproject/${this.props.match.params.proid}`).then(res=>{
+                Axios.get(`https://enigmatic-brook-34927.herokuapp.com/getdeveloperinproject/${this.props.match.params.proid}`).then(res=>{
                   if(res.status===200)
                     this.setState({developers:res.data.developers});
                 })

@@ -17,7 +17,7 @@ class Register extends React.Component{
     
     register(){
         if(this.state.password===this.state.cpassword)
-            axios.post('https://young-ocean-54472.herokuapp.com/form/register',{email:this.state.email,password:this.state.password,name:this.state.name})
+            axios.post('https://enigmatic-brook-34927.herokuapp.com/form/register',{email:this.state.email,password:this.state.password,name:this.state.name})
         else
         this.setState({err:0})
 

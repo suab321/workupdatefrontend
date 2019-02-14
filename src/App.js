@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   logout(){
-    Axios.get('https://young-ocean-54472.herokuapp.com/logout',{withCredentials:true}).then(res=>{
+    Axios.get('https://enigmatic-brook-34927.herokuapp.com/logout',{withCredentials:true}).then(res=>{
       if(res.data === 'ok')
         this.setState({redirect:true});
     })
